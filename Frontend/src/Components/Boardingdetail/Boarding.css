@@ -1,0 +1,15 @@
+.boarding-container {
+    text-align: center;
+    padding: 40px;
+  }
+  
+  .boarding-container h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .boarding-container p {
+    font-size: 18px;
+    color: gray;
+  }
+  

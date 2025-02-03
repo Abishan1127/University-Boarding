@@ -1,58 +1,28 @@
+import React from "react";
 import "./Contact.css";
-import { useState } from "react";
 
-const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    date: "",
-    message: ""
-  });
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Booking Details:", formData);
-  };
-
+const Contact: React.FC = () => {
   return (
-    <div className="booking-container">
-      <h1>Book Your Stay</h1>
-      <form onSubmit={handleSubmit} className="booking-form">
-        <input
-          type="text"
-          name="name"
-          placeholder="Your Name"
-          value={formData.name}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="email"
-          name="email"
-          placeholder="Your Email"
-          value={formData.email}
-          onChange={handleChange}
-          required
-        />
-        <input
-          type="date"
-          name="date"
-          value={formData.date}
-          onChange={handleChange}
-          required
-        />
-        <textarea
-          name="message"
-          placeholder="Additional Message"
-          value={formData.message}
-          onChange={handleChange}
-        />
-        <button type="submit">Submit</button>
+    <div className="contact-container">
+     
+      <h2>Have Questions? <span>We're Here To Help!</span></h2>
+      <p>
+        Have questions or need help narrowing down your search? We're here to assist!
+        Simply fill out the form below with your details and inquiry, and we'll get back
+        to you within 24 hours to help you find the perfect boarding option for your needs.
+      </p>
+
+      <form className="contact-form">
+        <div className="input-group">
+          <input type="text" placeholder="Name" required />
+          <input type="email" placeholder="Email" required />
+        </div>
+        <input type="text" placeholder="Title" required />
+        <textarea placeholder="Comments" required></textarea>
+        <button type="submit">SEND</button>
       </form>
+
+      
     </div>
   );
 };

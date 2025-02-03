@@ -1,38 +1,53 @@
+
 import React from "react";
-import kelaniyaImg from "../../assets/1.-University-of-Sri-Jayawardanepura.jpg";
-import sliateImg from "../assets/sliate.jpg";
-import colomboImg from "../assets/colombo.jpg";
+import "./Home.css"; 
+import { useNavigate } from "react-router-dom";
+import kelaniyaImg from "../../assets/kelani.jpg";
+import sliateImg from "../../assets/1717179630_image_192.jpg";
+import colomboImg from "../../assets/colombo.jpg";
+import peradeniyaImg from "../../assets/peradeniya.jpeg";
+import sri_jayawardenepuraImg from "../../assets/1.-University-of-Sri-Jayawardanepura.jpg";
+import moratuwaImg from "../../assets/UoM.jpg";
+import jaffnaImg from "../../assets/Jaffn-Uni.jpg";
+import ruhunaImg from "../../assets/rukunu.jpg";
+import easternImg from "../../assets/eastern.jpg";
+import southeasternImg from "../../assets/south eastern.jpeg";
+import rajarataImg from "../../assets/rajaratta.jpg";
+import sabaragamuwaImg from "../../assets/SABARAGAMUWA_UNIVERSITY_OF_SRI_LANKA_-_panoramio.jpg";
+
 
 const universities = [
-  { name: "University of Kelaniya", img: kelaniya.jpg },
-  { name: "SLIATE - Dehiwala", img: "sliate.jpg" },
-  { name: "University of Colombo", img: "colombo.jpg" },
-  { name: "University of Peradeniya", img: "peradeniya.jpg" },
-  { name: "University of Sri Jayewardenepura", img: "sri_jayawardenepura.jpg" },
-  { name: "University of Moratuwa", img: "moratuwa.jpg" },
-  { name: "University of Jaffna", img: "jaffna.jpg" },
-  { name: "University of Ruhuna", img: "ruhuna.jpg" },
-  { name: "Eastern University, Sri Lanka", img: "eastern.jpg" },
-  { name: "South Eastern University of Sri Lanka", img: "southeastern.jpg" },
-  { name: "Rajarata University of Sri Lanka", img: "rajarata.jpg" },
-  { name: "Sabaragamuwa University of Sri Lanka", img: "sabaragamuwa.jpg" },
+  { name: "University of Kelaniya", img: kelaniyaImg },
+  { name: "SLIATE - Dehiwala", img: sliateImg },
+  { name: "University of Colombo", img: colomboImg },
+  { name: "University of Peradeniya", img: peradeniyaImg },
+  { name: "University of Sri Jayewardenepura", img: sri_jayawardenepuraImg },
+  { name: "University of Moratuwa", img: moratuwaImg },
+  { name: "University of Jaffna", img: jaffnaImg },
+  { name: "University of Ruhuna", img: ruhunaImg },
+  { name: "Eastern University, Sri Lanka", img: easternImg },
+  { name: "South Eastern University of Sri Lanka", img: southeasternImg },
+  { name: "Rajarata University of Sri Lanka", img: rajarataImg },
+  { name: "Sabaragamuwa University of Sri Lanka", img: sabaragamuwaImg },
 ];
 
 const Home: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleClick = (universityName: string) => {
+    const formattedName = universityName.toLowerCase().replace(/\s+/g, "-");
+    navigate(`/boarding/${formattedName}`);
+  };
+
   return (
-    <div className="container mx-auto p-8 text-center">
-      <h1 className="text-3xl font-bold mb-4">Find Your Perfect Place - Anywhere In Sri Lanka!</h1>
-      <p className="text-gray-600 mb-6">
-        Search by city, region, or even university/workplace. MyBodima.lk makes finding your ideal
-        boarding accommodation convenient and hassle-free.
-      </p>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="home-container">
+      <h1>Find Your Perfect Place - Anywhere In Sri Lanka!</h1>
+      <p>Search by city, region, or even university/workplace.</p>
+      <div className="grid-container">
         {universities.map((uni, index) => (
-          <div key={index} className="relative group cursor-pointer">
-            <img src={`/assets/${uni.img}`} alt={uni.name} className="rounded-lg shadow-md w-full h-48 object-cover" />
-            <div className="absolute bottom-0 left-0 w-full bg-black bg-opacity-50 text-white p-2 text-sm font-bold">
-              {uni.name}
-            </div>
+          <div key={index} className="card" onClick={() => handleClick(uni.name)}>
+            <img src={uni.img} alt={uni.name} />
+            <p className="uni-name">{uni.name}</p>
           </div>
         ))}
       </div>
@@ -41,3 +56,4 @@ const Home: React.FC = () => {
 };
 
 export default Home;
+
