@@ -17,17 +17,17 @@ import sabaragamuwaImg from "../../assets/SABARAGAMUWA_UNIVERSITY_OF_SRI_LANKA_-
 
 
 const universities = [
+  { name: "University of Moratuwa", img: moratuwaImg },
+  { name: "University of Peradeniya", img: peradeniyaImg },
+  { name: "University of Jaffna", img: jaffnaImg },
+  { name: "Rajarata University of Sri Lanka", img: rajarataImg },
   { name: "University of Kelaniya", img: kelaniyaImg },
   { name: "SLIATE - Dehiwala", img: sliateImg },
   { name: "University of Colombo", img: colomboImg },
-  { name: "University of Peradeniya", img: peradeniyaImg },
   { name: "University of Sri Jayewardenepura", img: sri_jayawardenepuraImg },
-  { name: "University of Moratuwa", img: moratuwaImg },
-  { name: "University of Jaffna", img: jaffnaImg },
   { name: "University of Ruhuna", img: ruhunaImg },
   { name: "Eastern University, Sri Lanka", img: easternImg },
   { name: "South Eastern University of Sri Lanka", img: southeasternImg },
-  { name: "Rajarata University of Sri Lanka", img: rajarataImg },
   { name: "Sabaragamuwa University of Sri Lanka", img: sabaragamuwaImg },
 ];
 

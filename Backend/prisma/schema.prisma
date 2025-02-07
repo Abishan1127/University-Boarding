@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("postgr
+  esql://johndoe:randompassword@localhost:5432/mydb?schema=public")  // Your PostgreSQL connection URL
+}
+
+model University {
+  id        Int     @id @default(autoincrement())
+  name      String
+  location  String
+  boardings Boarding[]
+}
+
+model Boarding {
+  id           Int    @id @default(autoincrement())
+  university_id Int
+  name         String
+  address      String
+  rooms        Room[]
+}
+
+model Room {
+  id          Int    @id @default(autoincrement())
+  boarding_id Int
+  type        String
+  price       Float
+  available   Boolean @default(true)
+}

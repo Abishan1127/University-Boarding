@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
 import "./Navigation.css";
+import Logo from "../../assets/logo.png"
 
 const Navigation = () => {
   return (
+  <div className="main">
+    <img src={Logo} alt="" className="logo"/>
     <nav className="navbar">
+      
       <ul className="nav-links">
         <li><Link to="/" className="nav-item">Home</Link></li>
         <li><Link to="/about" className="nav-item">About</Link></li>
@@ -12,6 +16,7 @@ const Navigation = () => {
         <li><Link to="/login" className="nav-item">Login</Link></li>
       </ul>
     </nav>
+    </div>
   );
 };
 

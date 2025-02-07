@@ -1,35 +1,34 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminDashboard from "./Pages/AdminDashboard";
+import ManageUniversities from "./Pages/ManageUniversities";
+import ManageBoardings from "./Pages/ManageBoardings";
+import ManageRooms from "./Pages/ManageRooms";
+import BoardingForm from "./components/BoardingForm";
+import RoomForm from "./components/RoomForm";
+import UniversityForm from "./components/UniversityForm";
+import Dashboard from "./components/Dashboard";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <Router>
+      <div className="admin-container">
+        <Dashboard />
+        <div className="admin-content">
+          <Routes>
+            <Route path="/" element={<AdminDashboard />} />
+            <Route path="/universities" element={<ManageUniversities />} />
+            <Route path="/universities/add" element={<UniversityForm />} />
+            <Route path="/boardings" element={<ManageBoardings />} />
+            <Route path="/boardings/add" element={<BoardingForm />} />
+            <Route path="/rooms" element={<ManageRooms />} />
+            <Route path="/rooms/add" element={<RoomForm />} />
+          </Routes>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    </Router>
+  );
+};
 
-export default App
+export default App;
